@@ -3,31 +3,42 @@
 <div class="container">
   <ul>
   <% @categories.each do  |category|%>
-  <li><%= category.title  %></li>
+  <li class="category-title"><%= category.title  %></li>
   <div class="card">
-    <ul>
-      <% category.tasks.each do |task|  %>
-      <li>
-        <%= task.title  %>
-        <% unless task.deadline.nil? %>
-          , to read: <%= task.deadline.strftime('%D')  %>
-        <% end %>
-      </li>
-      <% end %>
-    </ul>
+	<div class="category-content">
+	    <ul>
+	      <% category.tasks.each do |task|  %>
+	      <li>
+	        <%= task.title  %>
+	        <% unless task.deadline.nil? %>
+	          , to read: <%= task.deadline.strftime('%D')  %>
+	        <% end %>
+	      </li>
+	      <% end %>
+	    </ul>
+	</div>
   </div>
   <% end %>
   </ul>
 </div>
 
-<div class="container">
-  <div class="row">
-    <% @tasks.each do |task|  %>
-      <div class="card col-3">
-        <% unless task.image.nil? %>
-          <%= image_tag task.image, class: "rounded-circle" %>
-        <% end %>
-      </div>
+<div class="container text-center d-flex justify-content-center">
+	<button id="previous"><-</button>
+  	<div id="carousel">
+    	<% @tasks.each do |task|  %>
+        	<% unless task.image.nil? %>
+          		<%= image_tag task.image, class: "rounded-circle carousel-img" %>
+        	<% end %>
+
+    	<% end %>
+  	</div>
+	<button id="next">-></button>
+</div>
+<div class="container text-center d-flex justify-content-center">
+	<% @tasks.each_with_index do |task, i|  %>
+        	<% unless task.image.nil? %>
+          		<span slide="<%= i %>" class="dot"></span>
+        	<% end %>
+
     <% end %>
-  </div>
 </div>

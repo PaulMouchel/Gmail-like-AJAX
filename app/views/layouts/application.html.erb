@@ -6,7 +6,8 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <%= javascript_include_tag "application" %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   </head>
@@ -14,6 +15,16 @@
   <body>
     <%= render 'layouts/navbar'  %>
     <%= render 'layouts/flash'  %>
+    <aside id='modal1' style='display:none' class = 'modal'>
+	  <div class="modal-wrapper">
+	    <%=render partial:'layouts/modals', locals:{action:'log_in'}%>
+	  </div>
+	</aside>
+	<aside id='modal2' style='display:none' class = 'modal'>
+	  <div class="modal-wrapper">
+	    <%=render partial:'layouts/modals', locals:{action:'sign_up'}%>
+	  </div>
+	</aside>
     <%= yield %>
   </body>
 </html>
