@@ -7,11 +7,11 @@
 			<% @emails.each do |email| %>
 				<p class="email" id="email-<%= email.id %>">
 	
-					<%= link_to email.object, email_path(email) %>
+					<%= link_to email.object, email_path(email), remote: true %>
 				</p>
 			<% end %>
 		</div>
-		<div class="col-md-8 border">
+		<div class="col-md-8 border" id="body">
 			
 		</div>
 	</div>

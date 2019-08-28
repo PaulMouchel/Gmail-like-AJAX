@@ -1,12 +1,6 @@
 emailElt = document.getElementById("emails");
-console.log(emailElt);
 newEmail = document.createElement("p");
-console.log("1");
 newEmail.textContent = "<%= @email.object %>";
-console.log("2");
 newEmail.classList.add("email");
-console.log("3");
 newEmail.id = "email-<%= @email.id %>";
-console.log("4");
 emailElt.appendChild(newEmail);
-console.log("5");
