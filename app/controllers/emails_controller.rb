@@ -6,8 +6,6 @@ class EmailsController < ApplicationController
 
 	def index
     @emails = Email.all
-    puts "$"*100
-    puts @emails
   end
 
   def create
@@ -22,6 +20,15 @@ class EmailsController < ApplicationController
     else
       redirect_to root_path
       flash[:notice] = "Please try again"
+    end
+  end
+
+  def destroy
+    @email = Email.find(params[:id])
+    @email.destroy
+    respond_to do |format|
+	      format.html { redirect_to root_path }
+	      format.js { }
     end
   end
 end
