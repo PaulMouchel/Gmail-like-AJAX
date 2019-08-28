@@ -1,4 +1,5 @@
 <li class="task-<%= task.id %>" style="display: none;">
+	<%= check_box_tag :name, 1, task.status , data: { remote: true, url: task_path(task), params: { id: task.id}.to_param, method: "put" }%>
     <%= task.title  %>
     <% unless task.deadline.nil? %>
       , to read: <%= task.deadline.strftime('%D')  %>

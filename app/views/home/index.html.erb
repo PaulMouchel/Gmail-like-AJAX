@@ -3,13 +3,19 @@
 <div class="container">
   <ul>
   <% @categories.each_with_index do  |category|%>
+
   <li class="category-title"><%= category.title  %></li>
   <div class="card">
 	<div class="category-content category-<%= category.id %>">
 	    <ul>
-	      <% category.tasks.each do |task|  %>
+	      <% category.tasks.sort_by {|task|task.created_at}.each do |task|  %>
 
-	      <li class="task-<%= task.id %>">
+	      <li class="task-<%= task.id %>"
+	      	<% if task.status %>
+	      		style="text-decoration: line-through;"
+	      	<% end %>
+	      		 >
+	      	<%= check_box_tag :name, 1, task.status , data: { remote: true, url: task_path(task), params: { id: task.id}.to_param, method: "put" }%>
 	        <%= task.title  %>
 	        <% unless task.deadline.nil? %>
 	          , to read: <%= task.deadline.strftime('%D')  %>
