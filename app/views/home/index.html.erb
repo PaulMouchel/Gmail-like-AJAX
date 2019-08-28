@@ -2,7 +2,7 @@
 <%= render 'layouts/task_form'  %>
 <div class="container">
   <ul>
-  <% @categories.each_with_index do  |category|%>
+  <% @categories.each do  |category|%>
 
   <li class="category-title"><%= category.title  %></li>
   <div class="card">

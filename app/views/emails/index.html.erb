@@ -1,0 +1,18 @@
+<div class="container">
+	<p>
+		<%= link_to "Recevoir un email", emails_path, method: :post, remote: true, class:"btn btn-success" %>
+	</p>
+	<div class="row">
+		<div class="col-md-4 border" id="emails">
+			<% @emails.each do |email| %>
+				<p class="email" id="email-<%= email.id %>">
+	
+					<%= link_to email.object, email_path(email) %>
+				</p>
+			<% end %>
+		</div>
+		<div class="col-md-8 border">
+			
+		</div>
+	</div>
+</div>
