@@ -1,0 +1,5 @@
+list = document.getElementsByClassName("category-<%= @category.id %>")[0].getElementsByTagName("ul")[0];
+list.insertAdjacentHTML("beforeend", "<%= j render 'task', task: @task %>");
+listLi = list.getElementsByTagName("li");
+newNode = listLi[listLi.length - 1];
+$(newNode).fadeIn(500);
