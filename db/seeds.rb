@@ -20,6 +20,6 @@ require 'faker'
     my_task.save
   end
 end
-10.times do
+3.times do
 	Email.create(object: Faker::Book.genre, body: Faker::Quotes::Shakespeare.romeo_and_juliet_quote)
 end
