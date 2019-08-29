@@ -2,8 +2,7 @@ class EmailsController < ApplicationController
 before_action :set_email, only: [:show, :update, :destroy]
 
 	def show
-		@email.read = true
-		@email.save
+		@email.update(read: true)
 	end
 
 	def index
@@ -12,8 +11,6 @@ before_action :set_email, only: [:show, :update, :destroy]
 
   def create
   	@email = Email.new(object: Faker::Book.title, body: Faker::Quotes::Shakespeare.hamlet_quote)
-    #@email = Email.new(object: Faker::Book.genre, body: Faker::Book.genre)
-    
     if @email.save
     	respond_to do |format|
 	      format.html { redirect_to root_path }
@@ -25,8 +22,7 @@ before_action :set_email, only: [:show, :update, :destroy]
   end
 
   def update
-  	@email.read = !@email.read
-  	@email.update(email_params)
+  	@email.update(read: !@email.read)
     respond_to do |format|
 	      format.html { redirect_to root_path }
 	      format.js { }
@@ -45,9 +41,5 @@ before_action :set_email, only: [:show, :update, :destroy]
 
   def set_email
       @email = Email.find(params[:id])
-  end
-
-  def email_params
-    params.permit(:object, :body)
   end
 end
