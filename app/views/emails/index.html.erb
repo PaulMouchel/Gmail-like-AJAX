@@ -6,7 +6,7 @@
 		<div class="col-md-4 border p-0">
 			<table class="table table-hover m-0">
 	  			<tbody id="emails">
-					<% @emails.sort_by {|email|email.created_at}.each do |email| %>
+					<% @emails.sort_by {|email|email.created_at}.reverse.each do |email| %>
 						<%= render 'email_in_list', email: email  %>
 					<% end %>
 				</tbody>

@@ -3,9 +3,9 @@ emailElt.classList.remove("font-weight-bold");
 emailsElt = document.getElementById("emails").getElementsByTagName("td");
 for (i=0 ; i<emailsElt.length ; i++)
 {
-	emailsElt[i].classList.remove("bg-warning");
+	emailsElt[i].classList.remove("table-primary");
 }
-emailElt.classList.add("bg-warning");
+emailElt.classList.add("table-primary");
 bodyElt = document.getElementById("body");
 bodyElt.innerHTML = "";
 bodyElt.insertAdjacentHTML("beforeend", "<%= j render 'email', email: @email %>");
