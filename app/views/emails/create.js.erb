@@ -1,6 +1,2 @@
 emailElt = document.getElementById("emails");
-newEmail = document.createElement("p");
-newEmail.textContent = "<%= @email.object %>";
-newEmail.classList.add("email");
-newEmail.id = "email-<%= @email.id %>";
-emailElt.appendChild(newEmail);
+emailElt.insertAdjacentHTML("beforeend", "<%= j render 'email_in_list', email: @email %>");

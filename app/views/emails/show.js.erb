@@ -1,3 +1,5 @@
+emailElt = document.getElementById("email-<%= @email.id %>");
+emailElt.classList.remove("font-weight-bold");
 bodyElt = document.getElementById("body");
 bodyElt.innerHTML = "";
 bodyElt.insertAdjacentHTML("beforeend", "<%= j render 'email', email: @email %>");
