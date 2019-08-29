@@ -1,5 +1,11 @@
 emailElt = document.getElementById("email-<%= @email.id %>");
 emailElt.classList.remove("font-weight-bold");
+emailsElt = document.getElementById("emails").getElementsByTagName("td");
+for (i=0 ; i<emailsElt.length ; i++)
+{
+	emailsElt[i].classList.remove("bg-warning");
+}
+emailElt.classList.add("bg-warning");
 bodyElt = document.getElementById("body");
 bodyElt.innerHTML = "";
 bodyElt.insertAdjacentHTML("beforeend", "<%= j render 'email', email: @email %>");

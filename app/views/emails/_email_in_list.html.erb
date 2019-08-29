@@ -1,3 +1,5 @@
-<p class="email <% if !email.read %>font-weight-bold<% end %>" id="email-<%= email.id %>">
-	<%= link_to email.object, email_path(email), remote: true, class:"stretched-link" %>
-</p>
+<tr class="email-line" id="<%= email.id %>">
+	<td class="email <% if !email.read %>font-weight-bold<% end %>" id="email-<%= email.id %>">
+		<%= email.object %>
+	</td>
+</tr>
