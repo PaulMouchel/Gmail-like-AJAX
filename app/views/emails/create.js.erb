@@ -1,2 +1,11 @@
 emailElt = document.getElementById("emails");
 emailElt.insertAdjacentHTML("beforeend", "<%= j render 'email_in_list', email: @email %>");
+
+$(".email-line").click(function(){
+	let url = "emails/" + this.id
+	$.ajax({
+	    url: url,
+	    type: "GET",
+	    dataType : 'script', 
+	});
+})
