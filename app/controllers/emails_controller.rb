@@ -3,10 +3,6 @@ before_action :set_email, only: [:show, :update, :destroy]
 
 	def show
 		@email.update(read: true)
-		puts "ù"*100
-		puts @email.id
-		puts params
-		puts "ù"*100
 	end
 
 	def index
